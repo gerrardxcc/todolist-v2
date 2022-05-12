@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const _ = require("lodash");
 const app = express();
-const port = process.env.MONGODB_URI || 3000;
 require('dotenv').config();
 
 app.set('view engine', 'ejs');
@@ -151,6 +150,10 @@ app.get("/about", (req, res) => {
   res.render("about");
 });
 
+let port = process.env.MONGODB_URI;
+if (port == null || port == "") {
+  port = 3000;
+}
 
 app.listen(port, () => {
   console.log("Server has started successfully");
