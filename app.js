@@ -151,5 +151,5 @@ app.get("/about", (req, res) => {
 });
 
 app.listen(process.env.MONGODB_URI || 3000, () => {
-  console.log("Server has started successfully on " + port);
+  console.log("Server has started successfully on ");
 });
