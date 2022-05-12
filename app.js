@@ -150,11 +150,8 @@ app.get("/about", (req, res) => {
   res.render("about");
 });
 
-let port = process.env.MONGODB_URI;
-if (port == null || port == "") {
-  port = 3000;
-}
+let port = process.env.MONGODB_URI || 3000;
 
 app.listen(port, () => {
-  console.log("Server has started successfully");
+  console.log("Server has started successfully on " + port);
 });
